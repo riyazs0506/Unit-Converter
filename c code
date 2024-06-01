@@ -1,0 +1,117 @@
+#include <stdio.h>
+
+// Function prototypes
+float convertLength(float value, int choice);
+float convertMass(float value, int choice);
+float convertTemperature(float value, int choice);
+float convertVolume(float value, int choice);
+
+int main()
+{
+    int category;
+    float value;
+    int choice;
+
+    printf("Select the category:\n");
+    printf("1. Length\n");
+    printf("2. Mass\n");
+    printf("3. Temperature\n");
+    printf("4. Volume\n");
+    printf("Enter your choice: ");
+    scanf("%d", &category);
+
+    printf("Enter the value to convert: ");
+    scanf("%f", &value);
+
+    switch (category)
+    {
+    case 1:
+        printf("Select conversion type:\n");
+        printf("1. Meter to feet\n");
+        printf("2. Feet to meter\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        printf("Converted value: %.2f\n", convertLength(value, choice));
+        break;
+    case 2:
+        printf("Select conversion type:\n");
+        printf("1. Kilogram to pounds\n");
+        printf("2. Pounds to kilograms\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        printf("Converted value: %.2f\n", convertMass(value, choice));
+        break;
+    case 3:
+        printf("Select conversion type:\n");
+        printf("1. Celsius to Fahrenheit\n");
+        printf("2. Fahrenheit to Celsius\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        printf("Converted value: %.2f\n", convertTemperature(value, choice));
+        break;
+    case 4:
+        printf("Select conversion type:\n");
+        printf("1. Liter to gallon\n");
+        printf("2. Gallon to liter\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        printf("Converted value: %.2f\n", convertVolume(value, choice));
+        break;
+    default:
+        printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+
+float convertLength(float value, int choice)
+{
+    if (choice == 1)
+        return value * 3.28084; // Meter to feet
+    else if (choice == 2)
+        return value * 0.3048; // Feet to meter
+    else
+    {
+        printf("Invalid choice!\n");
+        return 0;
+    }
+}
+
+float convertMass(float value, int choice)
+{
+    if (choice == 1)
+        return value * 2.20462; // Kilogram to pounds
+    else if (choice == 2)
+        return value * 0.453592; // Pounds to kilograms
+    else
+    {
+        printf("Invalid choice!\n");
+        return 0;
+    }
+}
+
+float convertTemperature(float value, int choice)
+{
+    if (choice == 1)
+        return (value * 9 / 5) + 32; // Celsius to Fahrenheit
+    else if (choice == 2)
+        return (value - 32) * 5 / 9; // Fahrenheit to Celsius
+    else
+    {
+        printf("Invalid choice!\n");
+        return 0;
+    }
+}
+
+float convertVolume(float value, int choice)
+{
+    if (choice == 1)
+        return value * 0.264172; // Liter to gallon
+    else if (choice == 2)
+        return value * 3.78541; // Gallon to liter
+    else
+    {
+        printf("Invalid choice!\n");
+        return 0;
+    }
+}
